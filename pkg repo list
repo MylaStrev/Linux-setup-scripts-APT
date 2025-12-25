@@ -1,0 +1,21 @@
+package repo list
+
+#apt
+sl
+fastfetch
+neofetch
+vlc
+obs-studio
+freecad
+git
+blender
+
+#snap
+spotify
+steam
+
+#snap --classic
+obsidian
+
+#flatpak
+
