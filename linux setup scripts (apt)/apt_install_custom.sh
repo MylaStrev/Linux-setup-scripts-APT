@@ -89,18 +89,18 @@ done
 # check file in downloads
 # downloads orcaslicer from orcaslicer.com and then installs
 if [ -f ~/Downloads/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak ]; then
-    echo "file found, checking if installed..."
+    echo "## file found, checking if installed..."
     else wget -q --show-progress https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.1/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak
 fi
 
 if flatpak list --app | grep -q "OrcaSlicer"; then
-    echo "orca is installed"
+    echo "## orca is installed"
     else
-    echo "installing orcaslicer..."
+    echo "## installing orcaslicer..."
     sudo flatpak install OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak --assumeyes
 fi
 
-#update code
+# update all packages on all managers
 echo "## CHECKING FOR AND INSTALLING APT PACKAGE UPDATES"
 sudo apt update && sudo apt upgrade -y
 
