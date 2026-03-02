@@ -1,13 +1,12 @@
 #!/bin/bash
 
-# additional needed packages
 #sudo apt install nvidia-cuda-toolkit -y
 
+# additional needed packages
 NEEDED_PACKAGES=(
 "snapd"
 "flatpak"
 )
-
 # list apps here
 APT_PACKAGES=(
 "sl"
@@ -18,16 +17,13 @@ APT_PACKAGES=(
 "blender"
 "wget"
 )
-
 SNAP_PACKAGES=(
 "spotify"
 "steam"
 )
-
 SNAP_CLASSIC_PACKAGES=(
 "obsidian"
 )
-
 FLATPACK_PACKAGES=(
 "github-desktop"
 )
@@ -64,7 +60,6 @@ for pkg in "${SNAP_PACKAGES[@]}"; do
         sudo snap install "$pkg"
     fi
 done
-
 # snap --classic install section
 for pkg in "${SNAP_CLASSIC_PACKAGES[@]}"; do
     if snap list "$pkg" &> /dev/null; then
@@ -92,7 +87,6 @@ if [ -f ~/Downloads/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak ]; then
     echo "## file found, checking if installed..."
     else wget -q --show-progress https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.1/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak
 fi
-
 if flatpak list --app | grep -q "OrcaSlicer"; then
     echo "## orca is installed"
     else
@@ -103,12 +97,9 @@ fi
 # update all packages on all managers
 echo "## CHECKING FOR AND INSTALLING APT PACKAGE UPDATES"
 sudo apt update && sudo apt upgrade -y
-
 echo "## CHECKING FOR AND INSTALLING SNAP PACKAGE UPDATES"
 sudo snap refresh
-
 echo "## CHECKING FOR AND INSTALLING FLATPAK PACKAGE UPDATES"
 sudo flatpak update
-
 echo "## UPDATES CHECKED!"
 echo "## DONE"
