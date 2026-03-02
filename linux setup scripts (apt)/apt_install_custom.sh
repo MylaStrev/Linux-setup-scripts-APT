@@ -14,7 +14,6 @@ APT_PACKAGES=(
 "fastfetch"
 "vlc"
 "obs-studio"
-"freecad"
 "git"
 "blender"
 "wget"
