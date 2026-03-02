@@ -17,15 +17,14 @@ for pkg in "${PACKAGES[@]}"; do
     fi
 done
 
-# download orca slicer from orca website
+## check file in downloads
+# downloads orcaslicer from orcaslicer.com and then installs
 
-wget -q --show-progress https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.1/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak
-
-# check file in downloads
-
-if flatpak list | grep -q "OrcaSlicer"; then
-    echo "orca is installed"
+if [ -f ~/Downloads/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak ]; then
+    echo "file found, now installing..."
+    sudo flatpak install OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak
 else
-    echo "installing orcaslicer..."
+    echo "ORCASLICER FILE NOT FOUND"
+    wget -q --show-progress https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.1/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak ; then
     sudo flatpak install OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak --assumeyes
 fi
