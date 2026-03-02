@@ -43,7 +43,7 @@ for pkg in "${NEEDED_PACKAGES[@]}"; do
     fi
 done
 
-#apt package install
+# apt install section
 echo "## INSTALLING APT PACKAGES"
 for pkg in "${APT_PACKAGES[@]}"; do
     if dpkg -s "$pkg" &> /dev/null; then
@@ -54,7 +54,7 @@ for pkg in "${APT_PACKAGES[@]}"; do
     fi
 done
 
-#snap package install
+# snap install section
 echo "## INSTALLING SNAP PACKAGES"
 for pkg in "${SNAP_PACKAGES[@]}"; do
     if snap list "$pkg" &> /dev/null; then
@@ -65,6 +65,7 @@ for pkg in "${SNAP_PACKAGES[@]}"; do
     fi
 done
 
+# snap --classic install section
 for pkg in "${SNAP_CLASSIC_PACKAGES[@]}"; do
     if snap list "$pkg" &> /dev/null; then
         echo "## $pkg is already installed, skipping.. "
@@ -74,6 +75,7 @@ for pkg in "${SNAP_CLASSIC_PACKAGES[@]}"; do
     fi
 done
 
+# flatpak install section
 for pkg in "${FLATPACK_PACKAGES[@]}"; DO
     if flatpak list --app | grep -q "$pkg"; then
         echo "## $pkg is already installed, skipping.. "
