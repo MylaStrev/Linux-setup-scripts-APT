@@ -28,6 +28,10 @@ SNAP_CLASSIC_PACKAGES=(
 "obsidian"
 )
 
+FLATPACK_PACKAGES=(
+"github-desktop"
+)
+
 # check for and install snap
 echo "## CHECKING FOR SNAP"
 for pkg in "${NEEDED_PACKAGES[@]}"; do
@@ -67,6 +71,15 @@ for pkg in "${SNAP_CLASSIC_PACKAGES[@]}"; do
     else
         echo "## installing $pkg via snap --classic"
         sudo snap install "$pkg" --classic
+    fi
+done
+
+for pkg in "${FLATPACK_PACKAGES[@]}"; DO
+    if flatpak list --app | grep -q "$pkg"; then
+        echo "## $pkg is already installed, skipping.. "
+    else
+        echo "## installing $pkg via flatpak..."
+        sudo flatpack install "$pkg" --assumeyes
     fi
 done
 
