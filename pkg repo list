@@ -9,6 +9,7 @@ obs-studio
 freecad
 git
 blender
+discord
 
 #snap
 spotify
@@ -18,4 +19,4 @@ steam
 obsidian
 
 #flatpak
-
+orcaslicer - install with downloaded flatpak file
