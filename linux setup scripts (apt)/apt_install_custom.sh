@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # additional needed packages
-sudo apt install nvidia-cuda-toolkit -y
+#sudo apt install nvidia-cuda-toolkit -y
 
 NEEDED_PACKAGES=(
 "snapd"
