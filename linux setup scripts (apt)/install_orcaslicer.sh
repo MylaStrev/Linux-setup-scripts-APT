@@ -13,17 +13,17 @@ for pkg in "${PACKAGES[@]}"; do
         echo "## $pkg is already installed, skipping..."
     else
         echo "installing $pkg..."
-        sudo apt install -y "$pkg"
+        sudo pacman -S -q --noconfirm "$pkg"
     fi
 done
 
 # download orca slicer from orca website
 
-wget -P Downloads/ https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.1/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak
+wget -q --show-progress https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.1/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak
 
 # check file in downloads
 
-if [ -f Downloads/ ] then
+if [ -f ~/Downloads/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak ]; then
     echo "file found, now installing..."
     sudo flatpak install OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak
 else
